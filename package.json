@@ -12,7 +12,10 @@
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/"
+    "format": "prettier --write --experimental-cli src/",
+    "schema:download": "curl \"http://localhost:8000/api/schema/?format=json\" -o ./src/api/docs/swagger.json",
+    "schema:generate": "openapi-typescript ./src/api/docs/swagger.json --output ./src/api/types.ts",
+    "schema:sync": "pnpm run schema:download && pnpm run schema:generate"
   },
   "dependencies": {
     "@primeuix/themes": "^2.0.3",
@@ -39,6 +42,7 @@
     "eslint-plugin-vue": "~10.8.0",
     "jiti": "^2.6.1",
     "npm-run-all2": "^8.0.4",
+    "openapi-typescript": "^7.13.0",
     "oxlint": "~1.60.0",
     "postcss": "^8.5.15",
     "prettier": "3.8.3",
