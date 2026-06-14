@@ -7,7 +7,7 @@ import './assets/main.css'
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
 import { VueQueryPlugin } from '@tanstack/vue-query'
-import { queryClient } from './api/api.ts'
+import { queryClient } from './api/client.ts'
 
 const app = createApp(App)
 
