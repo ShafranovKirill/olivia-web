@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
-<template>Hello, World!</template>
+<template>
+  <RouterView />
+</template>
 
 <style scoped></style>
