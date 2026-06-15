@@ -2,6 +2,8 @@ import { api } from '@/api/client'
 import type { paths } from '@/api/types'
 
 type MenuResponse = paths['/api/menu/']['get']['responses']['200']['content']['application/json']
+export type Category = MenuResponse[number]
+export type Product = Category['products'][number]
 
 export const MenuService = {
   async getMenu(): Promise<MenuResponse> {
