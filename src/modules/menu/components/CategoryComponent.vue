@@ -5,13 +5,14 @@ import ProductCard from './ProductCard.vue'
 defineProps<{ category: Category }>()
 </script>
 <template>
-  <Fieldset :legend="category.name">
-    <div class="grid">
+  <div class="my-4">
+    <h2 class="mb-2">{{ category.name }}</h2>
+    <div class="grid grid-cols-2 gap-1 justify-items-center">
       <ProductCard
         v-for="product in category.products"
         :key="product.id"
         :product="product"
       ></ProductCard>
     </div>
-  </Fieldset>
+  </div>
 </template>

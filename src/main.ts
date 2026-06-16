@@ -5,8 +5,8 @@ import App from './App.vue'
 import router from './router'
 import './assets/main.css'
 import 'primeicons/primeicons.css'
+import Lara from '@primeuix/themes/lara'
 import PrimeVue from 'primevue/config'
-import Aura from '@primeuix/themes/aura'
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import { queryClient } from './api/client.ts'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
@@ -16,7 +16,12 @@ const pinia = createPinia()
 
 app.use(PrimeVue, {
   theme: {
-    preset: Aura,
+    preset: Lara,
+    options: {
+      prefix: 'p',
+      darkModeSelector: 'light',
+      cssLayer: false,
+    },
   },
 })
 app.use(router)

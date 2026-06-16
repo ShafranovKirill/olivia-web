@@ -8,6 +8,11 @@ const { data: menuData, isLoading, isError } = useMenuQuery()
   <div v-if="isLoading"><ProgressSpinner></ProgressSpinner></div>
   <div v-else-if="isError">Ошибка при загрузке</div>
   <div v-else>
-    <CategoryComponent v-for="category in menuData" :key="category.id" :category="category" />
+    <CategoryComponent
+      v-for="category in menuData"
+      class="mx-2"
+      :key="category.id"
+      :category="category"
+    />
   </div>
 </template>
