@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Product } from '../api/menu.service'
+import type { MenuProduct } from '../../api/menu.service'
 
-const props = defineProps<{ product: Product }>()
+const props = defineProps<{ product: MenuProduct }>()
 
 const imageUrl = computed(() => {
   return props.product.image || '/product-placeholder/placeholder.svg'
@@ -24,9 +24,9 @@ const handleImageError = (event: Event) => {
       />
       <div class="flex flex-col items-center gap-2">
         <p class="text-xl font-medium text-center">{{ product.name }}</p>
-        <div class="rounded-4xl bg-gray-100 py-2 px-4">
+        <Button class="rounded-4xl! bg-primary py-1.5! px-4!">
           <span class="text-lg font-medium">{{ product.price }} ₽</span>
-        </div>
+        </Button>
       </div>
     </template>
   </Card>
