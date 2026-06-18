@@ -18,7 +18,7 @@ useMobCatBarScroll(activeCategoryId, containerRef)
 </script>
 <template>
   <div class="bg-gray-200 w-full sticky top-0 z-50">
-    <div class="py-2 bg-white rounded-t-4xl lg:rounded-t-full w-full overflow-hidden">
+    <div class="py-2 bg-white rounded-t-4xl w-full overflow-hidden">
       <div ref="containerRef" class="flex overflow-x-auto scrollbar-none max-w-7xl mx-auto">
         <Button
           v-for="category in categories"
