@@ -3,7 +3,6 @@ import { watch, nextTick, type Ref } from 'vue'
 export function useMobCatBarScroll(
   activeId: Ref<number | null | undefined>,
   containerRef: Ref<HTMLElement | null>,
-  isManualScroll: Ref<boolean>,
 ) {
   watch(activeId, async (newId) => {
     if (!newId || !containerRef.value) return

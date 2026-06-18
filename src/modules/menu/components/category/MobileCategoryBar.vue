@@ -13,8 +13,8 @@ const categories = computed(() => {
   return menu.value.filter((category) => category.products && category.products.length > 0)
 })
 const containerRef = ref<HTMLElement | null>(null)
-const { isManualScroll, activeCategoryId } = storeToRefs(menuStore)
-useMobCatBarScroll(activeCategoryId, containerRef, isManualScroll)
+const { activeCategoryId } = storeToRefs(menuStore)
+useMobCatBarScroll(activeCategoryId, containerRef)
 </script>
 <template>
   <div class="sticky top-0 p-4 z-50 bg-(--p-surface-50)">
