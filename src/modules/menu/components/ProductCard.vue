@@ -1,16 +1,39 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { Product } from '../api/menu.service'
 
-defineProps<{ product: Product }>()
+const props = defineProps<{ product: Product }>()
+
+const imageUrl = computed(() => {
+  return props.product.image || '/product-placeholder/placeholder.svg'
+})
+
+const handleImageError = (event: Event) => {
+  ;(event.target as HTMLImageElement).src = '/product-placeholder/placeholder.svg'
+}
 </script>
 <template>
-  <Card class="w-full h-full shrink-0 grow-0">
-    <template #title>{{ product.name }}</template>
+  <Card
+    class="group w-full h-full shrink-0 grow-0 rounded-4xl! p-2 overflow-hidden hover:cursor-pointer"
+  >
     <template #content>
-      <img :src="product.image" />
-      <p>{{ product.description }}</p>
-      <span>{{ product.price }}</span>
-      <span v-if="product.weight">Вес: {{ product.weight }}</span>
+      <img
+        :src="imageUrl"
+        @error="handleImageError"
+        class="w-full mb-2 object-cover aspect-square rounded-4xl block transition-transform duration-500 ease-in-out group-hover:scale-107"
+      />
+      <div class="flex flex-col items-center gap-2">
+        <p class="text-xl font-medium text-center">{{ product.name }}</p>
+        <div class="rounded-4xl bg-gray-100 py-2 px-4">
+          <span class="text-lg font-medium">{{ product.price }} ₽</span>
+        </div>
+      </div>
     </template>
   </Card>
 </template>
+
+<style scoped>
+:deep(.p-card-body) {
+  padding: 0 !important;
+}
+</style>

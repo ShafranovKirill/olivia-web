@@ -7,8 +7,8 @@ const sidebarStore = useSidebarStore()
   <header>
     <Toolbar class="rounded-none!">
       <template #start>
-        <Button icon="pi pi-bars" class="mr-2" @click="sidebarStore.toggleSidebar"></Button>
-        <div class="font-bold text-xl text-primary">Olivia</div>
+        <Button icon="pi pi-bars" class="mr-4" @click="sidebarStore.toggleSidebar"></Button>
+        <div class="tracking-widest text-4xl font-bold text-slate-900">Olivia</div>
       </template>
       <template #end>
         <Button icon="pi pi-shopping-bag"></Button>

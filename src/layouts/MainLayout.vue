@@ -6,7 +6,9 @@ import MainSidebar from '@/modules/widgets/sidebar/MainSidebar.vue'
 <template>
   <div class="min-h-screen flex flex-col">
     <MainHeader />
-    <router-view />
+    <main class="w-full max-w-7xl mx-auto px-2 sm:px-4">
+      <router-view />
+    </main>
   </div>
   <MainSidebar></MainSidebar>
 </template>
