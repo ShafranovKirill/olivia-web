@@ -17,20 +17,22 @@ const { activeCategoryId } = storeToRefs(menuStore)
 useMobCatBarScroll(activeCategoryId, containerRef)
 </script>
 <template>
-  <div class="sticky top-0 p-4 z-50 bg-(--p-surface-50)">
-    <div ref="containerRef" class="flex gap-4 overflow-x-auto scrollbar-none">
-      <Button
-        v-for="category in categories"
-        :key="category.id"
-        :data-id="category.id"
-        class="shrink-0 transition-all duration-200 border-none!"
-        @click="menuStore.scrollToCategory(category.id)"
-        :severity="menuStore.isActive(category.id) ? 'primary' : 'secondary'"
-        :outlined="!menuStore.isActive(category.id)"
-        rounded
-      >
-        {{ category.name }}
-      </Button>
+  <div class="bg-white w-full sticky top-0 z-50">
+    <div class="py-2 bg-(--p-surface-50) rounded-t-4xl lg:rounded-t-full w-full overflow-hidden">
+      <div ref="containerRef" class="flex overflow-x-auto scrollbar-none max-w-7xl mx-auto">
+        <Button
+          v-for="category in categories"
+          :key="category.id"
+          :data-id="category.id"
+          class="shrink-0 transition-all duration-200 border-none! mx-2"
+          @click="menuStore.scrollToCategory(category.id)"
+          :severity="menuStore.isActive(category.id) ? 'primary' : 'secondary'"
+          :outlined="!menuStore.isActive(category.id)"
+          rounded
+        >
+          {{ category.name }}
+        </Button>
+      </div>
     </div>
   </div>
 </template>
