@@ -1,22 +1,17 @@
 <script setup lang="ts">
+import { openLink } from '@/utils/browser'
 import { useContactsStore } from '../stores/constacts.store'
 
 const contactsStore = useContactsStore()
-
-const openLink = (url: string) => {
-  if (url) {
-    window.open(url, '_blank')
-  }
-}
 </script>
 <template>
-  <Dialog v-model:visible="contactsStore.isModalOpen">
+  <Dialog v-model:visible="contactsStore.isModalOpen" modal :dismissableMask="true">
     <template #header><h2>Контакты</h2></template>
     <template #default>
       <div class="w-full flex flex-col gap-2">
         <div class="flex gap-2">
           <Button
-            :label="contactsStore.contacts.phone"
+            :label="contactsStore.contacts.phoneFormatted"
             icon="pi pi-phone"
             @click="contactsStore.makeCall"
             class="w-full!"

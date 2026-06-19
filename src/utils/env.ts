@@ -1,12 +1,14 @@
 export const getEnv = <T = string>(key: keyof ImportMetaEnv, defaultValue?: T): T => {
   const value = import.meta.env[key]
 
-  if (value === undefined && defaultValue === undefined) {
-    console.warn(`Переменная окружения ${key} не найдена`)
-    return '' as T
+  if (value === undefined) {
+    if (defaultValue !== undefined) {
+      return defaultValue
+    }
+    throw new Error(`getEnv() | Environment variable ${key} is required but not defined.`)
   }
 
-  return (value || defaultValue) as T
+  return value as T
 }
 
 export const getCafeName = () => getEnv('VITE_CAFE_NAME', 'Cafe_name')

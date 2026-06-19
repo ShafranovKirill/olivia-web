@@ -7,12 +7,16 @@ import {
   getYmapsUrl,
 } from '@/utils/env'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
+import { formatPhoneNumber } from '../utils/tel-format'
 
 export const useContactsStore = defineStore('contacts', () => {
-  const contacts = ref({
+  const rawPhone = getPhoneNumber()
+
+  const contacts = reactive({
     cafeName: getCafeName(),
-    phone: getPhoneNumber(),
+    phone: rawPhone,
+    phoneFormatted: computed(() => formatPhoneNumber(rawPhone)),
     address: getAddress(),
     social: {
       vk: getVkUrl(),
@@ -36,12 +40,12 @@ export const useContactsStore = defineStore('contacts', () => {
 
   const copyPhoneNumber = async () => {
     try {
-      await navigator.clipboard.writeText(contacts.value.phone)
+      await navigator.clipboard.writeText(contacts.phone)
       return { success: true, message: 'Номер скопирован!' }
     } catch (error) {
       console.error('Ошибка копирования:', error)
       const textArea = document.createElement('textarea')
-      textArea.value = contacts.value.phone
+      textArea.value = contacts.phone
       document.body.appendChild(textArea)
       textArea.select()
       document.execCommand('copy')
@@ -54,7 +58,7 @@ export const useContactsStore = defineStore('contacts', () => {
     const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent)
 
     if (isMobile) {
-      window.location.href = `tel:${contacts.value.phone}`
+      window.location.href = `tel:${contacts.phone}`
     } else {
       copyPhoneNumber()
     }
