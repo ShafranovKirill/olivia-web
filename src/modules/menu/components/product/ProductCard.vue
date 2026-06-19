@@ -14,7 +14,7 @@ const handleImageError = (event: Event) => {
 </script>
 <template>
   <Card
-    class="group w-full h-full shrink-0 grow-0 rounded-4xl! p-2 overflow-hidden hover:cursor-pointer"
+    class="group w-full h-full shrink-0 grow-0 rounded-4xl! p-2 overflow-hidden hover:cursor-pointer shadow-none!"
   >
     <template #content>
       <img
