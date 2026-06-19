@@ -8,7 +8,9 @@ import MainHeader from '@/modules/widgets/header/MainHeader.vue'
 import MainSidebar from '@/modules/widgets/sidebar/MainSidebar.vue'
 </script>
 <template>
-  <div class="min-h-screen flex flex-col mx-auto items-center bg-white rounded-b-4xl">
+  <div
+    class="min-h-screen flex flex-col mx-auto items-center bg-white rounded-b-4xl xl:rounded-b-[70px]"
+  >
     <MainHeader />
     <MobileCategoryBar class="lg:hidden" />
     <DesktopCategoryBar class="hidden lg:block" />

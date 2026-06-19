@@ -17,6 +17,7 @@ declare module 'vue' {
     Divider: typeof import('primevue/divider')['default']
     Fieldset: typeof import('primevue/fieldset')['default']
     ICustomVkLogoWhite: typeof import('~icons/custom/vk-logo-white')['default']
+    IVkLogoBlack: typeof import('~icons/vk/logo-black')['default']
     IVkLogoWhite: typeof import('~icons/vk/logo-white')['default']
     Menu: typeof import('primevue/menu')['default']
     ProgressSpinner: typeof import('primevue/progressspinner')['default']
