@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { MenuCategory } from '../../api/menu.service.ts'
 import { useMenuStore } from '../../stores/useMenuStore.ts'
-import ProductCard from './ProductCard.vue'
 import { vIntersectionObserver } from '@vueuse/components'
+import ProductCard from '../product/ProductCard.vue'
 
 const props = defineProps<{ category: MenuCategory }>()
 const menuStore = useMenuStore()

@@ -7,11 +7,11 @@ import MainSidebar from '@/modules/widgets/sidebar/MainSidebar.vue'
 </script>
 <template>
   <div
-    class="min-h-screen flex flex-col mx-auto items-center bg-white rounded-b-4xl lg:rounded-b-[70px]"
+    class="min-h-screen flex flex-col mx-auto items-center bg-white rounded-4xl lg:rounded-b-[70px]"
   >
     <MainHeader />
 
-    <main class="w-full max-w-7xl mx-auto">
+    <main class="w-full mx-auto">
       <router-view />
     </main>
   </div>
