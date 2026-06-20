@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useImagePlaceholder } from '../../composables/useImagePlaceholder'
-import { useMenuStore } from '../../stores/useMenuStore'
+import { useImagePlaceholder } from '../../../composables/useImagePlaceholder'
+import { useMenuStore } from '../../../stores/useMenuStore'
+import AddToCartButton from './AddToCartButton.vue'
 
 const menuStore = useMenuStore()
 const { activeProduct } = storeToRefs(menuStore)
@@ -38,10 +39,7 @@ const { getImageUrl, handleImageError } = useImagePlaceholder()
               {{ activeProduct?.description }}
             </p>
           </div>
-          <Button
-            :label="`В корзину за ${activeProduct?.price} ₽`"
-            class="whitespace-nowrap rounded-4xl!"
-          ></Button>
+          <AddToCartButton :price="activeProduct?.price!" />
         </div>
       </div>
     </template>

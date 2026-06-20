@@ -15,6 +15,7 @@ declare module 'vue' {
     Card: typeof import('primevue/card')['default']
     Dialog: typeof import('primevue/dialog')['default']
     Divider: typeof import('primevue/divider')['default']
+    Drawer: typeof import('primevue/drawer')['default']
     Fieldset: typeof import('primevue/fieldset')['default']
     ICustomVkLogoWhite: typeof import('~icons/custom/vk-logo-white')['default']
     IVkLogoBlack: typeof import('~icons/vk/logo-black')['default']

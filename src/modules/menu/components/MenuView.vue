@@ -6,7 +6,7 @@ import DesktopCategoryBar from './category/DesktopCategoryBar.vue'
 import CategoryComponent from './category/CategoryComponent.vue'
 import SkeletonCategory from './category/SkeletonCategory.vue'
 import ErrorComponent from './category/ErrorComponent.vue'
-import DesktopProductModal from './product/DesktopProductModal.vue'
+import ProductModal from './product/modal/ProductModal.vue'
 
 const { data: menuData, isLoading, isError, refetch } = useMenuQuery()
 
@@ -26,5 +26,5 @@ const menu = computed(() => {
   <div v-else class="px-2 sm:px-4 max-w-7xl mx-auto">
     <CategoryComponent v-for="category in menu" :key="category.id" :category="category" />
   </div>
-  <DesktopProductModal />
+  <ProductModal />
 </template>
