@@ -19,9 +19,16 @@ const { getImageUrl, handleImageError } = useImagePlaceholder()
         class="w-full mb-2 object-cover aspect-square rounded-4xl block transition-transform duration-500 ease-in-out group-hover:scale-107"
       />
       <div class="flex flex-col items-center gap-2">
-        <p class="text-xl font-medium text-center">{{ product.name }}</p>
-        <Button class="rounded-4xl! bg-primary py-1.5! px-4!">
-          <span class="text-lg font-medium">{{ product.price }} ₽</span>
+        <p class="text-xl font-bold text-center">{{ product.name }}</p>
+        <Button class="rounded-4xl! bg-primary py-1.5! px-4! flex items-center gap-2">
+          <span class="text-lg font-bold text-white"> {{ product.price }} ₽ </span>
+
+          <span
+            v-if="product.old_price && product.old_price !== '0.00'"
+            class="text-sm text-white/70 line-through decoration-white/50"
+          >
+            {{ product.old_price }} ₽
+          </span>
         </Button>
       </div>
     </template>

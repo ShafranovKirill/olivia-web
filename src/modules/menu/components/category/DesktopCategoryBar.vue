@@ -64,7 +64,10 @@ watch(categories, updateVisibleCount, { deep: true })
 <template>
   <div class="bg-gray-200 w-full sticky top-0 z-50">
     <div class="bg-white rounded-t-full w-full min-h-20">
-      <div ref="containerRef" class="flex gap-4 max-w-7xl mx-auto py-3 px-12 2xl:px-2 items-center">
+      <div
+        ref="containerRef"
+        class="whitespace-nowrap flex gap-4 max-w-7xl mx-auto py-3 px-12 2xl:px-2 items-center"
+      >
         <Button
           v-for="(category, index) in categories.slice(0, visibleCount)"
           :key="category.id"
@@ -75,7 +78,7 @@ watch(categories, updateVisibleCount, { deep: true })
           @click="menuStore.scrollToCategory(category.id)"
           class="whitespace-nowrap border-0!"
         >
-          {{ category.name }}
+          <p class="font-bold!">{{ category.name }}</p>
         </Button>
 
         <div v-if="visibleCount < categories.length" class="relative group">
@@ -86,7 +89,7 @@ watch(categories, updateVisibleCount, { deep: true })
               :severity="isHiddenActive ? 'primary' : 'secondary'"
               :outlined="!isHiddenActive"
             >
-              <span>{{ isHiddenActive ? activeCategoryName : 'Ещё' }}</span>
+              <p class="font-bold!">{{ isHiddenActive ? activeCategoryName : 'Ещё' }}</p>
 
               <i class="pi pi-chevron-down text-sm pt-1"></i>
             </Button>
@@ -99,10 +102,10 @@ watch(categories, updateVisibleCount, { deep: true })
               v-for="cat in categories.slice(visibleCount)"
               :key="cat.id"
               class="px-4 py-2 cursor-pointer hover:bg-gray-100 rounded transition-colors"
-              :class="{ 'font-bold text-primary-500': activeCategoryId === cat.id }"
+              :class="{ ' text-primary-500': activeCategoryId === cat.id }"
               @click="menuStore.scrollToCategory(cat.id)"
             >
-              {{ cat.name }}
+              <p class="font-bold! text-gray-500">{{ cat.name }}</p>
             </div>
           </div>
         </div>

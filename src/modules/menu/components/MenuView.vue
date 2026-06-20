@@ -7,6 +7,7 @@ import CategoryComponent from './category/CategoryComponent.vue'
 import SkeletonCategory from './category/SkeletonCategory.vue'
 import ErrorComponent from './category/ErrorComponent.vue'
 import ProductModal from './product/modal/ProductModal.vue'
+import CartButtonMobile from '@/modules/cart/components/CartButtonMobile.vue'
 
 const { data: menuData, isLoading, isError, refetch } = useMenuQuery()
 
@@ -27,4 +28,5 @@ const menu = computed(() => {
     <CategoryComponent v-for="category in menu" :key="category.id" :category="category" />
   </div>
   <ProductModal />
+  <CartButtonMobile class="md:hidden!" />
 </template>

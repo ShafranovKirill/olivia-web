@@ -30,7 +30,7 @@ useMobCatBarScroll(activeCategoryId, containerRef)
           :outlined="!menuStore.isActive(category.id)"
           rounded
         >
-          {{ category.name }}
+          <p class="font-bold">{{ category.name }}</p>
         </Button>
       </div>
     </div>

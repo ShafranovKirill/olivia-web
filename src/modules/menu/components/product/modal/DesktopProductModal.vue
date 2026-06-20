@@ -13,7 +13,7 @@ const { getImageUrl, handleImageError } = useImagePlaceholder()
     v-model:visible="menuStore.isProductModalOpen"
     :dismissable-mask="true"
     modal
-    class="w-[85vw] max-w-5xl h-[50vh]"
+    class="w-[85vw] max-w-5xl h-[50vh] rounded-4xl!"
   >
     <template #container>
       <Button

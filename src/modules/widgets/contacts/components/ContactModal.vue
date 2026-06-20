@@ -20,7 +20,7 @@ const handleCopy = async () => {
 </script>
 <template>
   <Dialog v-model:visible="contactsStore.isModalOpen" modal :dismissableMask="true">
-    <template #header><h2>Контакты</h2></template>
+    <template #header><h2 class="font-bold text-xl">Контакты</h2></template>
     <template #default>
       <div class="w-full flex flex-col gap-2">
         <div class="flex gap-2">
