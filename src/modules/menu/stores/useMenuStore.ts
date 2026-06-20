@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia'
+import type { MenuProduct } from '../api/menu.service'
 
 export const useMenuStore = defineStore('menu', {
   state: () => ({
     activeCategoryId: null as number | null,
     isManualScroll: false,
+    isProductModalOpen: false,
+    activeProduct: null as MenuProduct | null,
   }),
 
   getters: {
@@ -26,6 +29,16 @@ export const useMenuStore = defineStore('menu', {
       await new Promise((resolve) => setTimeout(resolve, 500))
 
       this.isManualScroll = false
+    },
+
+    openProductModal(product: MenuProduct) {
+      this.activeProduct = product
+      this.isProductModalOpen = true
+    },
+
+    closeProductModal() {
+      this.activeProduct = null
+      this.isProductModalOpen = false
     },
   },
 })

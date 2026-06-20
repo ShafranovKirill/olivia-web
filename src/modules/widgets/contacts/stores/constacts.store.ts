@@ -9,7 +9,6 @@ import {
 import { defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
 import { formatPhoneNumber } from '../utils/tel-format'
-import { useToast } from 'primevue'
 
 export const useContactsStore = defineStore('contacts', () => {
   const rawPhone = getPhoneNumber()

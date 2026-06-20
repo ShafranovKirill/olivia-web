@@ -93,7 +93,7 @@ watch(categories, updateVisibleCount, { deep: true })
           </div>
 
           <div
-            class="absolute top-full right-0 mt-0 bg-white shadow-2xl rounded-xl border p-2 hidden group-hover:block w-56 max-h-[60vh] overflow-y-auto z-100"
+            class="absolute top-full right-0 mt-0 bg-white shadow-2xl rounded-xl p-2 hidden group-hover:block w-56 max-h-[60vh] overflow-y-auto z-100"
           >
             <div
               v-for="cat in categories.slice(visibleCount)"

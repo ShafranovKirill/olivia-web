@@ -1,24 +1,20 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { MenuProduct } from '../../api/menu.service'
+import { useMenuStore } from '../../stores/useMenuStore'
+import { useImagePlaceholder } from '../../composables/useImagePlaceholder'
 
 const props = defineProps<{ product: MenuProduct }>()
-
-const imageUrl = computed(() => {
-  return props.product.image || '/product-placeholder/placeholder.svg'
-})
-
-const handleImageError = (event: Event) => {
-  ;(event.target as HTMLImageElement).src = '/product-placeholder/placeholder.svg'
-}
+const menuStore = useMenuStore()
+const { getImageUrl, handleImageError } = useImagePlaceholder()
 </script>
 <template>
   <Card
+    @click="menuStore.openProductModal(props.product)"
     class="group w-full h-full shrink-0 grow-0 rounded-4xl! p-2 overflow-hidden hover:cursor-pointer shadow-none!"
   >
     <template #content>
       <img
-        :src="imageUrl"
+        :src="getImageUrl(product.image)"
         @error="handleImageError"
         class="w-full mb-2 object-cover aspect-square rounded-4xl block transition-transform duration-500 ease-in-out group-hover:scale-107"
       />
